@@ -1,6 +1,8 @@
 from custom_errors import NegativeNumberException
 from numpy import sin
-
+from fib_number_generator import FibNumberGenerator
+from pathlib import Path
+from pandas import DataFrame, read_csv
 
 def check_if_fun_number(number: int)-> bool:
     """Checks if the given number is fun, returns true if number is fun
@@ -11,6 +13,8 @@ def check_if_fun_number(number: int)-> bool:
     Returns:
         (bool, str): Result if it is a fun number, with explanation
     """    
+    
+    
     #Show that exception can also be tested
     if number< 0:
         raise NegativeNumberException(number)
@@ -25,19 +29,22 @@ def check_if_fun_number(number: int)-> bool:
     return True
 
 
-def check_multiple_numbers(numbers: list[int]) -> list[bool]:
+def check_numbers_in_csv(path: Path) -> list[bool]:
     """Loop over a selection of numbers to check if fun
 
     Args:
-        numbers (list[int]): Numbers to check
+        path (Path): The path to the numbers csv
 
     Returns:
         list[bool]: results of funness of numbers
     """    
     results = []
-    for index, number in enumerate(numbers):
+    df = read_csv(path)
+    for number in df["Numbers"]:
         result = check_if_fun_number(number)
         results.append(result)
         
     return results
     
+
+
