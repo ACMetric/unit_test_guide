@@ -1,4 +1,3 @@
-#from functions import cool_function
 from functions.cool_function import check_if_fun_number
 
 def run_main(num: int)-> str:
@@ -16,6 +15,6 @@ def run_main(num: int)-> str:
     else:
         return f"{num} is not a fun number :("
 
-
+ 
 if __name__ == "__main__":
     run_main(2)

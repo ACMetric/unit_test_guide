@@ -6,6 +6,7 @@ from fib_number_generator import FibNumberGenerator
 import functions.cool_function 
 from pandas import DataFrame
 
+
 class TestCheckIfFunNumber():
     def test_number_equal_to_one(self)-> None:
         """Checks if 1 is a fun number
@@ -55,10 +56,7 @@ class TestCheckIfFunNumber():
         result = check_if_fun_number(input_value)
         
         #Assert
-        assert result == expected_result
-        
-        
-        
+        assert result == expected_result  
      
     @pytest.fixture
     def fifth_fib_number(self)-> FibNumberGenerator:
@@ -68,7 +66,6 @@ class TestCheckIfFunNumber():
         Yields:
             FibNumberGenerator: Teh number generator 
         """        
-    
         number_generator = FibNumberGenerator()
         number_generator.get_next_number()
         number_generator.get_next_number()
@@ -105,7 +102,6 @@ class TestCheckIfFunNumber():
         assert result == expected_result
         
         
-        
 class TestCheckMultipleNumbers():
     def mock_dataframe(self) -> DataFrame:
         """Return a fake df
@@ -119,6 +115,7 @@ class TestCheckMultipleNumbers():
         """    
         
         #Arrange
+        #We mock read_csv from functions.cool_function, NOT from pandas
         monkeypatch.setattr(functions.cool_function , "read_csv", lambda _: self.mock_dataframe())
         fake_path = "home/acmetric/number.csv"
         

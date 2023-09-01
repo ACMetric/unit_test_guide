@@ -11,9 +11,8 @@ def check_if_fun_number(number: int)-> bool:
         number (int): input number
 
     Returns:
-        (bool, str): Result if it is a fun number, with explanation
+        (bool): True if it is a fun number
     """    
-    
     
     #Show that exception can also be tested
     if number< 0:
