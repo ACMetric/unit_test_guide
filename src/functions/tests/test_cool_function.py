@@ -45,6 +45,10 @@ class TestCheckIfFunNumber():
         
         #Act and Assert
         with pytest.raises(NegativeNumberException):
+            
+            
+            
+            
             result = check_if_fun_number(input_value)
         
     @pytest.mark.parametrize("input_value, expected_result", [(1, True), (2, False), (42, False)])
@@ -66,6 +70,7 @@ class TestCheckIfFunNumber():
         Yields:
             FibNumberGenerator: Teh number generator 
         """        
+
         number_generator = FibNumberGenerator()
         number_generator.get_next_number()
         number_generator.get_next_number()
@@ -102,7 +107,7 @@ class TestCheckIfFunNumber():
         assert result == expected_result
         
         
-class TestCheckMultipleNumbers():
+class TestCheckNumbersInCsv():
     def mock_dataframe(self) -> DataFrame:
         """Return a fake df
         """        
