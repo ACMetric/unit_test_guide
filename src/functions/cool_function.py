@@ -38,7 +38,7 @@ def check_numbers_in_csv(path: Path) -> list[bool]:
         list[bool]: results of funness of numbers
     """    
     results = []
-    df = read_csv(path)
+    df = read_csv(path=path)
     for number in df["Numbers"]:
         result = check_if_fun_number(number)
         results.append(result)
